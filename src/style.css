@@ -1,7 +1,78 @@
+body {
+  background-color: #bba9a0;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  color: #da763a;
+  font-family: "Italiana", serif;
+  font-size: 5.61rem;
+  text-align: center;
+}
+
+h2 {
+  display: inline;
+  font-size: 4.209rem;
+  font-weight: 300;
+}
+a {
+  color: #da763a;
+}
+
+small {
+  font-weight: 100;
+}
+
+ul {
+  list-style: none;
+  line-height: 1.777rem;
+}
+
+.time,
+.date,
+.search-input,
+.search-loc,
+.geoloc-btn,
+.addtl-weather,
+.addtl-weather-label {
+  font-weight: 300;
+  font-size: 1.333rem;
+}
+
+.main-row {
+  margin-top: 3rem;
+}
+
+.addtl-weather-label {
+  font-weight: 400;
+}
+
+.main-weather-icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.super-units {
+  position: relative;
+  top: -2.125rem;
+  right: -0.5rem;
+}
+
 .weather-app {
-  max-width: 600px;
+  max-width: 750px;
   margin: 3em auto;
   padding: 1.5em;
   border: 1px solid #d0d0d0;
   border-radius: 0.5em;
+  background-color: #e9e9e9;
+}
+
+.weather-description {
+  font-style: italic;
+  font-size: 1.777rem;
+  text-align: center;
+}
+
+.links-etc {
+  margin-top: 5rem;
 }

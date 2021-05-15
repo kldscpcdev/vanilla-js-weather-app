@@ -12,6 +12,11 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:ital,wght@0,100;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -46,26 +51,35 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row main-row">
         <div class="col-4">
           <h1>paris</h1>
-          <span class="weatherDescription">sunny</span>
-          <h2>100</h2>
-          <span class="altUnits">&deg;F</span>
-          <span class="unitSpacer">|</span>
-          <span class="altUnits">&deg;C</span>
+          <div class="weather-description">sunny</div>
         </div>
         <div class="col-4">
           <img
             src="./images/partly-cloudy.png"
             alt="partly cloudy"
-            width="200px"
+            class="main-weather-icon"
+            width="100px"
           />
+          <h2>100</h2>
+          <span class="super-units">
+            <span class="altUnits">&deg;F</span>
+            <span class="unitSpacer">|</span>
+            <span class="altUnits">&deg;C</span>
+          </span>
         </div>
         <div class="col-4">
           <ul>
-            <li><span>Wind Speed:</span><span>10 mph</span></li>
-            <li><span>Precipitation:</span><span>13%</span></li>
+            <li>
+              <span class="addtl-weather-label">Wind Speed:</span
+              ><span class="addtl-weather">10 mph</span>
+            </li>
+            <li>
+              <span class="addtl-weather-label">Precipitation:</span
+              ><span class="addtl-weather">13%</span>
+            </li>
           </ul>
         </div>
       </div>

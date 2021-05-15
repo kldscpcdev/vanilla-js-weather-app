@@ -26,25 +26,71 @@ small {
 ul {
   list-style: none;
   line-height: 1.777rem;
+  position: absolute;
+  bottom: 0;
 }
 
 .time,
 .date,
 .search-input,
 .search-loc,
-.geoloc-btn,
+.geoloc-btn {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
 .addtl-weather,
 .addtl-weather-label {
   font-weight: 300;
-  font-size: 1.333rem;
+  font-size: 1rem;
 }
 
 .main-row {
   margin-top: 3rem;
 }
 
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+.search {
+  padding-right: 0;
+}
+
+.location-search {
+  display: block;
+  text-align: right;
+  flex-flow: nowrap;
+}
+
+.button-geoloc {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.search-loc,
+.current-date-time {
+  border: 0.125rem solid #bba9a0;
+  border-radius: 0.5em;
+}
+
 .addtl-weather-label {
   font-weight: 400;
+  margin-right: 0.3rem;
+}
+
+.current-date-time {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.geoloc-btn {
+  background-color: #bba9a0;
+  border-radius: 0.5em;
+  color: #e9e9e9;
 }
 
 .main-weather-icon {
@@ -67,6 +113,10 @@ ul {
   background-color: #e9e9e9;
 }
 
+.city-and-desc {
+  position: absolute;
+  bottom: 0;
+}
 .weather-description {
   font-style: italic;
   font-size: 1.777rem;

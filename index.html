@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="container">
-    <div class="row top">
+      <div class="row top">
         <div class="col-2 current-date-time">
           <div class="time" id="current-time">7:10 AM</div>
           <hr />
@@ -36,34 +36,59 @@
             </button>
           </form>
           <div class="buttonGeoloc">
-          <button
-            name="current-geoloc"
-            class="btn my-2 my-sm-0 geoloc-btn"
-            id="geobtn"
-          >
-            Current location
-          </button>
+            <button
+              name="current-geoloc"
+              class="btn my-2 my-sm-0 geoloc-btn"
+              id="geobtn"
+            >
+              Current location
+            </button>
+          </div>
         </div>
       </div>
-    <div class="links-etc">
-      <span class="footer-text">
-        This page was built by Daisy Chavez |
-        <a
-          href="https://tangerinewebtech.com/"
-          target="_blank"
-          class="footer-link"
-          >Tangerine Web Tech</a
-        >. Opensourced on
-        <a
-          href="https://github.com/kldscpcdev/vanilla-js-weather-app"
-          target="_blank"
-          class="footer-link"
-          >GitHub</a
-        >. Hosted on
-        <a href="https://www.netlify.com/" target="_blank" class="footer-link"
-          >Netlify</a
-        >.
-      </span>
+      <div class="row">
+        <div class="col-4">
+          <h1>paris</h1>
+          <span class="weatherDescription">sunny</span>
+          <h2>100</h2>
+          <span class="altUnits">&deg;F</span>
+          <span class="unitSpacer">|</span>
+          <span class="altUnits">&deg;C</span>
+        </div>
+        <div class="col-4">
+          <img
+            src="./images/partly-cloudy.png"
+            alt="partly cloudy"
+            width="200px"
+          />
+        </div>
+        <div class="col-4">
+          <ul>
+            <li><span>Wind Speed:</span><span>10 mph</span></li>
+            <li><span>Precipitation:</span><span>13%</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="links-etc">
+        <span class="footer-text">
+          This page was built by Daisy Chavez |
+          <a
+            href="https://tangerinewebtech.com/"
+            target="_blank"
+            class="footer-link"
+            >Tangerine Web Tech</a
+          >. Opensourced on
+          <a
+            href="https://github.com/kldscpcdev/vanilla-js-weather-app"
+            target="_blank"
+            class="footer-link"
+            >GitHub</a
+          >. Hosted on
+          <a href="https://www.netlify.com/" target="_blank" class="footer-link"
+            >Netlify</a
+          >.
+        </span>
+      </div>
     </div>
     <script src="./src/app.js"></script>
   </body>

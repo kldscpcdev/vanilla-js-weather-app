@@ -62,7 +62,7 @@ currentDate.addEventListener("DOMContentLoaded", displayDate());
 //display temp in city from search input
 function showTemp(response) {
   console.log(response);
-  console.log(response.data.wind.speed);
+  console.log(response.data.weather[0].icon);
   let currentTemp = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("h2");
   tempDisplay.innerHTML = `${currentTemp}`;
@@ -82,6 +82,11 @@ function showTemp(response) {
   let humidity = response.data.main.humidity;
   let humidityText = document.querySelector("#humidity-text");
   humidityText.innerHTML = `${humidity}%`;
+
+  let mainIcon = response.data.weather[0].icon;
+  let mainIconSource = document.querySelector("#current-icon");
+  mainIconSource.setAttribute("src", `./images/${mainIcon}.svg`);
+  mainIconSource.setAttribute("alt", `${weatherDesc}`);
 }
 
 let apiKey = "dc7771fb57d0403dbd163832b559b2be";

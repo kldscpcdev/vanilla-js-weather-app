@@ -1,5 +1,4 @@
-//let apiKey = "98b4e3cc4b6283b641c45d21c2b3df2";
-
+// set script for current date and time
 let now = new Date();
 
 function displayTime(event) {
@@ -57,3 +56,73 @@ let currentDate = document.querySelector("#current-date");
 
 // add the load HTML DOM event to currentTime, set function displayTime
 currentDate.addEventListener("DOMContentLoaded", displayDate());
+
+// set script for weather api functions
+
+//display temp in city from search input
+function showTemp(response) {
+  console.log(response);
+  console.log(response.data.wind.speed);
+  let currentTemp = Math.round(response.data.main.temp);
+  let tempDisplay = document.querySelector("h2");
+  tempDisplay.innerHTML = `${currentTemp}`;
+
+  let currentCity = response.data.name;
+  let h1Text = document.querySelector("h1");
+  h1Text.innerHTML = currentCity;
+
+  let weatherDesc = response.data.weather[0].description;
+  let descText = document.querySelector("#desc-text");
+  descText.innerHTML = weatherDesc;
+
+  let windSpeed = response.data.wind.speed;
+  let speedText = document.querySelector("#speed-text");
+  speedText.innerHTML = `${windSpeed} mph`;
+
+  let humidity = response.data.main.humidity;
+  let humidityText = document.querySelector("#humidity-text");
+  humidityText.innerHTML = `${humidity}%`;
+}
+
+let apiKey = "dc7771fb57d0403dbd163832b559b2be";
+let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+let units = "imperial";
+
+// display search input
+function showSearchInput(event) {
+  event.preventDefault();
+  let h1Text = document.querySelector("h1");
+  let inputText = document.querySelector("#loc-search-input");
+
+  h1Text.innerHTML = inputText.value;
+
+  let cityName = inputText.value;
+
+  axios
+    .get(`${apiUrl}q=${cityName}&units=${units}&appid=${apiKey}`)
+    .then(showTemp);
+
+  inputText.value = "";
+}
+
+let searchForm = document.querySelector("#location-form");
+searchForm.addEventListener("submit", showSearchInput);
+
+// geolocation api to show current location temp
+function setCoords(position) {
+  let currentLat = position.coords.latitude;
+  let currentLon = position.coords.longitude;
+
+  axios
+    .get(
+      `${apiUrl}&lat=${currentLat}&lon=${currentLon}&units=${units}&appid=${apiKey}`
+    )
+    .then(showTemp);
+}
+
+function getCoordinates() {
+  navigator.geolocation.getCurrentPosition(setCoords);
+}
+
+let geoLocButton = document.querySelector("#geobtn");
+geoLocButton.addEventListener("click", getCoordinates);

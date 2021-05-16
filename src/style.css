@@ -16,7 +16,7 @@ h2 {
   font-weight: 300;
 }
 a {
-  color: #da763a;
+  color: #e9e9e9;
 }
 
 small {
@@ -46,7 +46,7 @@ ul {
 }
 
 .main-row {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .top {
@@ -104,9 +104,12 @@ ul {
   right: -0.5rem;
 }
 
+.weather-app-wrapper,
 .weather-app {
   max-width: 750px;
-  margin: 3em auto;
+}
+.weather-app {
+  margin: 3rem auto 1rem auto;
   padding: 1.5em;
   border: 1px solid #d0d0d0;
   border-radius: 0.5em;
@@ -124,5 +127,5 @@ ul {
 }
 
 .links-etc {
-  margin-top: 5rem;
+  margin: 1rem 1.5rem;
 }

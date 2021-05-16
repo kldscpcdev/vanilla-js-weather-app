@@ -20,69 +20,77 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container weather-app">
-      <div class="row top">
-        <div class="col-2 current-date-time">
-          <div class="time" id="current-time">7:10 AM</div>
-          <hr />
-          <div class="date" id="current-date">APRIL 28</div>
+    <div class="container weather-app-wrapper">
+      <div class="weather-app">
+        <div class="row top">
+          <div class="col-2 current-date-time">
+            <div class="time" id="current-time">7:10 AM</div>
+            <hr />
+            <div class="date" id="current-date">APRIL 28</div>
+          </div>
+          <div class="col-6 search">
+            <form class="form-inline location-search" id="location-form">
+              <input
+                class="
+                  form-control
+                  mr-sm-2
+                  loc-form
+                  form-control-lg
+                  search-input
+                "
+                type="search"
+                placeholder="Location"
+                aria-label="Search for location"
+                id="loc-search-input"
+              />
+              <button class="btn my-2 my-sm-0 search-loc" type="submit">
+                Search
+              </button>
+            </form>
+            <div class="button-geoloc">
+              <button
+                name="current-geoloc"
+                class="btn my-2 my-sm-0 geoloc-btn"
+                id="geobtn"
+              >
+                Current location
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-6 search">
-          <form class="form-inline location-search" id="location-form">
-            <input
-              class="form-control mr-sm-2 loc-form form-control-lg search-input"
-              type="search"
-              placeholder="Location"
-              aria-label="Search for location"
-              id="loc-search-input"
+        <div class="row main-row">
+          <div class="col-4">
+            <div class="city-and-desc">
+              <h1>paris</h1>
+              <div class="weather-description">sunny</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <img
+              src="./images/partly-cloudy.png"
+              alt="partly cloudy"
+              class="main-weather-icon"
+              width="200px"
             />
-            <button class="btn my-2 my-sm-0 search-loc" type="submit">
-              Search
-            </button>
-          </form>
-          <div class="button-geoloc">
-            <button
-              name="current-geoloc"
-              class="btn my-2 my-sm-0 geoloc-btn"
-              id="geobtn"
-            >
-              Current location
-            </button>
+            <h2>100</h2>
+            <span class="super-units">
+              <span class="altUnits">&deg;F</span>
+              <span class="unitSpacer">|</span>
+              <span class="altUnits">&deg;C</span>
+            </span>
           </div>
-        </div>
-      </div>
-      <div class="row main-row">
-        <div class="col-4">
-          <div class="city-and-desc">
-            <h1>paris</h1>
-            <div class="weather-description">sunny</div>
+          <div class="col-4">
+            <ul>
+              <li>
+                <span class="addtl-weather-label">Wind Speed:</span
+                ><span class="addtl-weather">10 mph</span>
+              </li>
+              <li>
+                <span class="addtl-weather-label">Precipitation:</span
+                ><span class="addtl-weather">13%</span>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="col-4">
-          <img
-            src="./images/partly-cloudy.png"
-            alt="partly cloudy"
-            class="main-weather-icon"
-            width="200px"
-          />
-          <h2>100</h2>
-          <span class="super-units">
-            <span class="altUnits">&deg;F</span>
-            <span class="unitSpacer">|</span>
-            <span class="altUnits">&deg;C</span>
-          </span>
-        </div>
-        <div class="col-4">
-          <ul>
-            <li>
-              <span class="addtl-weather-label">Wind Speed:</span
-              ><span class="addtl-weather">10 mph</span>
-            </li>
-            <li>
-              <span class="addtl-weather-label">Precipitation:</span
-              ><span class="addtl-weather">13%</span>
-            </li>
-          </ul>
         </div>
       </div>
       <div class="links-etc">

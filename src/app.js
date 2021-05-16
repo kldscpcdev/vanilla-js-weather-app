@@ -68,6 +68,7 @@ function showTemp(response) {
   tempDisplay.innerHTML = `${currentTemp}`;
 
   let currentCity = response.data.name;
+  currentCity = currentCity.toLowerCase();
   let h1Text = document.querySelector("h1");
   h1Text.innerHTML = currentCity;
 

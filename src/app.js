@@ -133,25 +133,39 @@ function getCoordinates() {
 let geoLocButton = document.querySelector("#geobtn");
 geoLocButton.addEventListener("click", getCoordinates);
 
-function convertTemp(event) {
+// function convertToFahr(event) {
+//   event.preventDefault();
+//   let tempText = document.querySelector("h2");
+//   tempText.innerHTML = Math.round(fahrTempValue);
+//   leftUnit.innerHTML = `&deg;F`;
+//   rightUnit.innerHTML = `<a href="">&deg;C</a>`;
+
+//   rightUnit.addEventListener("click", convertToCel);
+// }
+
+function convertToCel(event) {
   event.preventDefault();
-
-  // when Fahrenheit is being displayed, the right unit will be the Celcius converstion link
-  // if (rightText === "&deg;C") {
-
-  let celTemp = (fahrTempValue - 32) * (5 / 9);
-  console.log(celTemp);
   let tempText = document.querySelector("h2");
-  tempText.innerHTML = `${Math.round(celTemp)}&deg;`;
+  let celTempValue = (fahrTempValue - 32) * (5 / 9);
+  tempText.innerHTML = Math.round(celTempValue);
   leftUnit.innerHTML = `&deg;C`;
   rightUnit.innerHTML = `<a href="">&deg;F</a>`;
 
-  // } else {
-  //}
+  rightUnit.addEventListener("click", convertToFahr);
+
+  function convertToFahr(event) {
+    event.preventDefault();
+    tempText.innerHTML = Math.round(fahrTempValue);
+    leftUnit.innerHTML = `&deg;F`;
+    rightUnit.innerHTML = `<a href="">&deg;C</a>`;
+  }
+  //tempText.innerHTML = Math.round(fahrTempValue);
+  //leftUnit.innerHTML = `&deg;F`;
+  //rightUnit.innerHTML = `<a href="">&deg;C</a>`;
 }
 
 let leftUnit = document.querySelector("#units-left");
 let rightUnit = document.querySelector("#units-right");
-rightUnit.addEventListener("click", convertTemp);
+rightUnit.addEventListener("click", convertToCel);
 
 let fahrTempValue = null;

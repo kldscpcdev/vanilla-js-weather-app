@@ -61,8 +61,6 @@ currentDate.addEventListener("DOMContentLoaded", displayDate());
 
 //display temp in city from search input
 function showTemp(response) {
-  console.log(response);
-  console.log(response.data.weather[0].icon);
   let currentTemp = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("h2");
   tempDisplay.innerHTML = `${currentTemp}`;
@@ -88,6 +86,8 @@ function showTemp(response) {
   let mainIconSource = document.querySelector("#current-icon");
   mainIconSource.setAttribute("src", `./images/${mainIcon}.svg`);
   mainIconSource.setAttribute("alt", `${weatherDesc}`);
+
+  fahrTempValue = response.data.main.temp;
 }
 
 let apiKey = "dc7771fb57d0403dbd163832b559b2be";
@@ -132,3 +132,26 @@ function getCoordinates() {
 
 let geoLocButton = document.querySelector("#geobtn");
 geoLocButton.addEventListener("click", getCoordinates);
+
+function convertTemp(event) {
+  event.preventDefault();
+
+  // when Fahrenheit is being displayed, the right unit will be the Celcius converstion link
+  // if (rightText === "&deg;C") {
+
+  let celTemp = (fahrTempValue - 32) * (5 / 9);
+  console.log(celTemp);
+  let tempText = document.querySelector("h2");
+  tempText.innerHTML = `${Math.round(celTemp)}&deg;`;
+  leftUnit.innerHTML = `&deg;C`;
+  rightUnit.innerHTML = `<a href="">&deg;F</a>`;
+
+  // } else {
+  //}
+}
+
+let leftUnit = document.querySelector("#units-left");
+let rightUnit = document.querySelector("#units-right");
+rightUnit.addEventListener("click", convertTemp);
+
+let fahrTempValue = null;

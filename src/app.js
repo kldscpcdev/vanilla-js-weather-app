@@ -144,6 +144,7 @@ geoLocButton.addEventListener("click", getCoordinates);
 // }
 
 function convertToCel(event) {
+  rightUnit.removeEventListener("click", convertToCel);
   event.preventDefault();
   let tempText = document.querySelector("h2");
   let celTempValue = (fahrTempValue - 32) * (5 / 9);
@@ -154,10 +155,13 @@ function convertToCel(event) {
   rightUnit.addEventListener("click", convertToFahr);
 
   function convertToFahr(event) {
+    rightUnit.removeEventListener("click", convertToFahr);
     event.preventDefault();
     tempText.innerHTML = Math.round(fahrTempValue);
     leftUnit.innerHTML = `&deg;F`;
     rightUnit.innerHTML = `<a href="">&deg;C</a>`;
+
+    rightUnit.addEventListener("click", convertToCel);
   }
   //tempText.innerHTML = Math.round(fahrTempValue);
   //leftUnit.innerHTML = `&deg;F`;

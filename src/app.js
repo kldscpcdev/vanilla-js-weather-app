@@ -133,16 +133,6 @@ function getCoordinates() {
 let geoLocButton = document.querySelector("#geobtn");
 geoLocButton.addEventListener("click", getCoordinates);
 
-// function convertToFahr(event) {
-//   event.preventDefault();
-//   let tempText = document.querySelector("h2");
-//   tempText.innerHTML = Math.round(fahrTempValue);
-//   leftUnit.innerHTML = `&deg;F`;
-//   rightUnit.innerHTML = `<a href="">&deg;C</a>`;
-
-//   rightUnit.addEventListener("click", convertToCel);
-// }
-
 function convertToCel(event) {
   rightUnit.removeEventListener("click", convertToCel);
   event.preventDefault();
@@ -163,9 +153,6 @@ function convertToCel(event) {
 
     rightUnit.addEventListener("click", convertToCel);
   }
-  //tempText.innerHTML = Math.round(fahrTempValue);
-  //leftUnit.innerHTML = `&deg;F`;
-  //rightUnit.innerHTML = `<a href="">&deg;C</a>`;
 }
 
 let leftUnit = document.querySelector("#units-left");

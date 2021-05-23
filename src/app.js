@@ -26,6 +26,15 @@ let currentTime = document.querySelector("#current-time");
 // add the load HTML DOM event to currentTime, set function displayTime
 currentTime.addEventListener("DOMContentLoaded", displayTime());
 
+// format days for forecast
+function formatForeDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 // display current date
 function displayDate(event) {
   let monthsArr = [
@@ -178,7 +187,7 @@ function displayWeatherForecast(response) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2 forecast">
-          ${forecastDay.dt}
+          ${formatForeDate(forecastDay.dt)}
           <img
             src="./images/${forecastDay.weather[0].icon}.svg"
             alt="${forecastDay.weather[0].description}"

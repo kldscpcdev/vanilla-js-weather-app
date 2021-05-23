@@ -167,18 +167,21 @@ function displayWeatherForecast() {
   let forecastSection = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row weather-forecast">`;
-  forecastHTML =
-    forecastHTML +
-    `<div class="col-2 forecast">
-      MON
-      <img
-        src="file:///Users/daisychavez/Desktop/SheCodes/vanilla-js-weather-app/images/04d.svg"
-        alt=""
-        class="fore-icon-img"
-      />
-      <span class="fore-high">99&deg;</span>
-      <span class="fore-low">55&deg;</span>
-    </div>`;
+  let forecastDays = ["sun", "mon", "tue", "wed", "thu", "fri"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 forecast">
+          ${day}
+          <img
+            src="file:///Users/daisychavez/Desktop/SheCodes/vanilla-js-weather-app/images/04d.svg"
+            alt=""
+            class="fore-icon-img"
+          />
+          <span class="fore-high">99&deg;</span>
+          <span class="fore-low">55&deg;</span>
+        </div>`;
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastSection.innerHTML = forecastHTML;
 }

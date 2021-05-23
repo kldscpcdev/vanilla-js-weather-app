@@ -183,19 +183,23 @@ function displayWeatherForecast(response) {
 
   let forecastHTML = `<div class="row weather-forecast">`;
   let forecastDays = ["sun", "mon", "tue", "wed", "thu", "fri"];
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 forecast">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 7 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 forecast">
           ${formatForeDate(forecastDay.dt)}
           <img
             src="./images/${forecastDay.weather[0].icon}.svg"
             alt="${forecastDay.weather[0].description}"
             class="fore-icon-img"
           />
-          <span class="fore-high">${forecastDay.temp.max}&deg;</span>
-          <span class="fore-low">${forecastDay.temp.min}&deg;</span>
+          <span class="fore-high">${Math.round(
+            forecastDay.temp.max
+          )}&deg;</span>
+          <span class="fore-low">${Math.round(forecastDay.temp.min)}&deg;</span>
         </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastSection.innerHTML = forecastHTML;

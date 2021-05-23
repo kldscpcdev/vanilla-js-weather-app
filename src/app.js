@@ -169,22 +169,23 @@ let fahrTempValue = null;
 // weather forecast code
 
 function displayWeatherForecast(response) {
+  let forecast = response.data.daily;
   let forecastSection = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row weather-forecast">`;
   let forecastDays = ["sun", "mon", "tue", "wed", "thu", "fri"];
-  forecastDays.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col-2 forecast">
-          ${day}
+          ${forecastDay.dt}
           <img
-            src="./images/04d.svg"
-            alt=""
+            src="./images/${forecastDay.weather[0].icon}.svg"
+            alt="${forecastDay.weather[0].description}"
             class="fore-icon-img"
           />
-          <span class="fore-high">99&deg;</span>
-          <span class="fore-low">55&deg;</span>
+          <span class="fore-high">${forecastDay.temp.max}&deg;</span>
+          <span class="fore-low">${forecastDay.temp.min}&deg;</span>
         </div>`;
   });
   forecastHTML = forecastHTML + `</div>`;

@@ -59,35 +59,40 @@ currentDate.addEventListener("DOMContentLoaded", displayDate());
 
 // set script for weather api functions
 
+// forecast API fucntion
+function getForecast(coordinates) {
+  let searchLat = coordinates.lat;
+  let searchLon = coordinates.lon;
+  let foreURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${searchLat}&lon=${searchLon}&units=${units}&appid=${apiKey}`;
+  axios.get(foreURL).then(displayWeatherForecast);
+}
+
 //display temp in city from search input
 function showTemp(response) {
   let currentTemp = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("h2");
-  tempDisplay.innerHTML = `${currentTemp}`;
-
   let currentCity = response.data.name;
   currentCity = currentCity.toLowerCase();
   let h1Text = document.querySelector("h1");
-  h1Text.innerHTML = currentCity;
-
   let weatherDesc = response.data.weather[0].description;
   let descText = document.querySelector("#desc-text");
-  descText.innerHTML = weatherDesc;
-
   let windSpeed = response.data.wind.speed;
   let speedText = document.querySelector("#speed-text");
-  speedText.innerHTML = `${windSpeed} mph`;
-
   let humidity = response.data.main.humidity;
   let humidityText = document.querySelector("#humidity-text");
-  humidityText.innerHTML = `${humidity}%`;
-
   let mainIcon = response.data.weather[0].icon;
   let mainIconSource = document.querySelector("#current-icon");
+
+  tempDisplay.innerHTML = `${currentTemp}`;
+  h1Text.innerHTML = currentCity;
+  descText.innerHTML = weatherDesc;
+  speedText.innerHTML = `${windSpeed} mph`;
+  humidityText.innerHTML = `${humidity}%`;
   mainIconSource.setAttribute("src", `./images/${mainIcon}.svg`);
   mainIconSource.setAttribute("alt", `${weatherDesc}`);
-
   fahrTempValue = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 let apiKey = "dc7771fb57d0403dbd163832b559b2be";
@@ -163,7 +168,7 @@ let fahrTempValue = null;
 
 // weather forecast code
 
-function displayWeatherForecast() {
+function displayWeatherForecast(response) {
   let forecastSection = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row weather-forecast">`;
@@ -185,5 +190,3 @@ function displayWeatherForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastSection.innerHTML = forecastHTML;
 }
-
-displayWeatherForecast();

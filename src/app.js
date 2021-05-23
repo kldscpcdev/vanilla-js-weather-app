@@ -174,7 +174,7 @@ function displayWeatherForecast() {
       `<div class="col-2 forecast">
           ${day}
           <img
-            src="file:///Users/daisychavez/Desktop/SheCodes/vanilla-js-weather-app/images/04d.svg"
+            src="./images/04d.svg"
             alt=""
             class="fore-icon-img"
           />
